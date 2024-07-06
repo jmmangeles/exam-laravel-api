@@ -18,24 +18,6 @@ Route::get('/', function () {
     return response('Ok!');
 });
 
-// Route::get('specialties', 'GetSpecialtiesController');
-
-// Route::group(['middleware' => 'auth:client'], function () {
-//     // Route::group([
-//     //     'namespace' => 'Clinic',
-//     // ], function() {
-//     //     Route::get('clinics', 'GetClinicList');
-//     // });
-
-//     // Route::post('invitation', 'SendClientInvitation');
-//     // Route::get('specialties-services', 'GetSpecialtiesAndServices');
-//     // Route::get('profile/{id}', 'GetProfileDetails');
-//     // Route::post('invite/dentist', 'InviteDentist');
-//     // Route::post('cancel-invite/dentist', 'CancelDentistInvite');
-//     // Route::get('affiliated-dentists', 'GetAffiliatedDentists');
-//     // Route::get('unread-notifications', 'GetUnreadNotifications');
-// });
-
 Route::group([
     'namespace' => 'Auth',
     'prefix' => 'auth'
@@ -44,5 +26,4 @@ Route::group([
     Route::get('me', 'AuthController@me');
     Route::post('logout', 'AuthController@logout');
     Route::post('register', 'Register\RegisterController');
-    // Route::post('forgot-password/change-password', 'ForgotPassword\ChangePassword');
 });

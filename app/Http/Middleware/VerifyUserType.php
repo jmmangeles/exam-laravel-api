@@ -15,6 +15,7 @@ class VerifyUserType
      */
     public function handle(Request $request, Closure $next, string $userType): Response
     {
+        logger('check user type');
         $client = auth()->guard('client')->user();
 
         if (empty($client)) return abort(401);

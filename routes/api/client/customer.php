@@ -20,10 +20,10 @@ Route::get('/', function () {
 
 // add checking of user type: customer or seller
 Route::group(['middleware' => 'auth:client'], function () {
-    // Route::group([
-    //     'namespace' => 'Profile',
-    //     'prefix' => 'profile'
-    // ],function() {
-    //     Route::put('update', 'EditProfileController');
-    // });
+    Route::group([
+        'namespace' => 'Profile',
+        'prefix' => 'profile'
+    ],function() {
+        Route::put('update', 'UpdateProfile');
+    });
 });

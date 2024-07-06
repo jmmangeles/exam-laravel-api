@@ -34,7 +34,6 @@ class AuthController extends Controller
 
     public function login(LoginRequest $request)
     {
-        logger('login log');
         $validated = $request->validated();
 
         $this->guard()->setTTL($this->expiresIn);
@@ -42,14 +41,7 @@ class AuthController extends Controller
         $data = [
             'email' => $validated['email'],
             'password' => $validated['password'],
-            // since in web user/lawyer can login in one login form
-            // 'type' => config('constants.client.types.user')
         ];
-
-        if (!empty($validated['type'])) {
-            // if there's a type meaning it only this type can login
-            $data['type'] = $validated['type'];
-        }
 
         if ($token = $this->guard()->attempt($data)) {
 
